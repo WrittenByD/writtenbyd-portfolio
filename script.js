@@ -62,54 +62,7 @@ const projects = [
     lessons: "The portfolio itself is treated as a product: the architecture should make adding the tenth project almost as easy as adding the first.",
     github: "https://github.com/WrittenByD/writtenbyd-portfolio"
   },
-  {
-    id: "coming-cloud",
-    title: "Cloud Project Slot",
-    category: "Cloud & DevOps",
-    status: "Next build",
-    year: "—",
-    featured: false,
-    source: "Coursera Learning Path",
-    summary: "Reserved for the first deployable AWS/cloud project produced from upcoming coursework.",
-    tags: ["AWS", "Cloud", "Deployment"],
-    problem: "To be defined by the course project.",
-    built: "This slot will become a full case study once the project is completed.",
-    decisions: ["Document architecture.", "Track deployment choices.", "Capture failures and fixes.", "Publish reproducible steps."],
-    lessons: "Pending.",
-    github: ""
-  },
-  {
-    id: "coming-data",
-    title: "Data & Analytics Project Slot",
-    category: "Data & Analytics",
-    status: "Next build",
-    year: "—",
-    featured: false,
-    source: "Coursera Learning Path",
-    summary: "Reserved for a data analysis project with a real dataset, documented questions, transformations, findings, and visualization.",
-    tags: ["SQL", "Python", "Analytics"],
-    problem: "To be defined by the course project.",
-    built: "This slot will become a full case study once the project is completed.",
-    decisions: ["Use a real dataset.", "State the analytical question first.", "Make transformations reproducible.", "Explain findings plainly."],
-    lessons: "Pending.",
-    github: ""
-  },
-  {
-    id: "coming-security",
-    title: "Networking & Security Project Slot",
-    category: "Networking & Security",
-    status: "Next build",
-    year: "—",
-    featured: false,
-    source: "Coursera Learning Path",
-    summary: "Reserved for a networking or security lab that demonstrates configuration, diagnosis, hardening, or incident analysis.",
-    tags: ["Networking", "Security", "Linux"],
-    problem: "To be defined by the course project.",
-    built: "This slot will become a full case study once the project is completed.",
-    decisions: ["Capture topology.", "Document test conditions.", "Show the failure state.", "Show how the fix was verified."],
-    lessons: "Pending.",
-    github: ""
-  }
+
 ];
 
 const grid = document.querySelector("#project-grid");
