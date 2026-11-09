@@ -1,21 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>WrittenByD</title>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="WrittenByD — a technical portfolio documenting fintech, software, cloud, data, networking, and automation projects." />
+  <title>WrittenByD | Technical Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="WrittenByD home">
+        <span class="brand-mark">W/D</span>
+        <span>WrittenByD</span>
+      </a>
 
-    <h1>WrittenByD</h1>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
 
-    <p>Portfolio coming soon.</p>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="https://github.com/WrittenByD" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </nav>
+    </header>
 
-    <script src="script.js"></script>
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-copy">
+          <p class="eyebrow">TECHNICAL PORTFOLIO / LEARNING LAB</p>
+          <h1>I learn systems by <span>building them.</span></h1>
+          <p class="hero-lede">
+            A growing archive of fintech, software, cloud, data, networking, and automation projects —
+            turning coursework into working systems, documented decisions, and evidence of what I can do.
+          </p>
 
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore projects</a>
+            <a class="button button-ghost" href="#about">About this portfolio</a>
+          </div>
+
+          <div class="hero-meta" aria-label="Portfolio highlights">
+            <div><strong id="project-count">0</strong><span>Projects</span></div>
+            <div><strong>6</strong><span>Focus areas</span></div>
+            <div><strong>2021—Now</strong><span>Fintech experience</span></div>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Current focus">
+          <div class="terminal-bar">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="terminal-content">
+            <p><span class="prompt">$</span> current_focus</p>
+            <ul>
+              <li><span>01</span> Payments & API integrations</li>
+              <li><span>02</span> Cloud & infrastructure</li>
+              <li><span>03</span> Software development</li>
+              <li><span>04</span> Data & analytics</li>
+              <li><span>05</span> Networking & security</li>
+              <li><span>06</span> Automation & AI</li>
+            </ul>
+            <p class="terminal-status">status: always building<span class="cursor">_</span></p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">PROJECT LIBRARY</p>
+            <h2>Built to prove the skill.</h2>
+          </div>
+          <p>
+            Every project is documented as a case study: problem, architecture, decisions,
+            tools, challenges, results, and lessons learned.
+          </p>
+        </div>
+
+        <div class="project-toolbar">
+          <div id="project-filters" class="filter-group" aria-label="Filter projects"></div>
+          <label class="search-box">
+            <span class="sr-only">Search projects</span>
+            <input id="project-search" type="search" placeholder="Search projects..." autocomplete="off" />
+          </label>
+        </div>
+
+        <div id="project-grid" class="project-grid" aria-live="polite"></div>
+        <p id="project-empty" class="empty-state" hidden>No projects match those filters yet.</p>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CAPABILITY MAP</p>
+            <h2>What I work with.</h2>
+          </div>
+          <p>
+            The portfolio is intentionally broad, but the spine is systems thinking:
+            understand the flow, isolate the failure, improve the design.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <span class="skill-number">01</span>
+            <h3>Payments & Fintech</h3>
+            <p>REST APIs, XML, OAuth 2.0, Postman, tokenization, 3DS, Apple Pay, Google Pay, EMV, Interac, card-on-file.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-number">02</span>
+            <h3>Development</h3>
+            <p>JavaScript, Node.js, Python, SQL, Git/GitHub, HTML, CSS, API debugging, scripting, application logic.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-number">03</span>
+            <h3>Cloud & Infrastructure</h3>
+            <p>AWS, Linux, PowerShell, HTTP/HTTPS, DNS, TLS/SSL, networking fundamentals, deployment workflows.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-number">04</span>
+            <h3>Security & Risk</h3>
+            <p>PCI DSS, encryption, secure payment flows, fraud/risk systems, production readiness, QA and remediation.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-number">05</span>
+            <h3>Delivery & Consulting</h3>
+            <p>Requirements, technical discovery, scheduling, QA coordination, developer coordination, escalations, go-live guidance.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-number">06</span>
+            <h3>Learning & Documentation</h3>
+            <p>Technical writing, demos, training guides, case studies, project retrospectives, reusable implementation documentation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="credentials" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CREDENTIALS</p>
+            <h2>Courses are the starting line.</h2>
+          </div>
+          <p>
+            The credential matters less than what gets built from it. Each completed course
+            should eventually point to one or more tangible portfolio projects.
+          </p>
+        </div>
+
+        <div class="credential-list">
+          <article>
+            <div>
+              <span class="credential-date">JAN 2026</span>
+              <h3>Google IT Support</h3>
+              <p>Google</p>
+            </div>
+            <span class="credential-tag">IT / SYSTEMS</span>
+          </article>
+          <article>
+            <div>
+              <span class="credential-date">MAR 2026</span>
+              <h3>Google AI</h3>
+              <p>Google</p>
+            </div>
+            <span class="credential-tag">AI</span>
+          </article>
+          <article>
+            <div>
+              <span class="credential-date">APR 2026</span>
+              <h3>Content Creation for TikTok, YouTube, Instagram & Facebook</h3>
+              <p>Coursera</p>
+            </div>
+            <span class="credential-tag">CONTENT</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="section about-section">
+        <div>
+          <p class="eyebrow">ABOUT</p>
+          <h2>Engineering foundation. Fintech experience. Builder mindset.</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            I’m John-Douglas McGregor, an Electrical Engineering graduate and fintech technical consultant.
+            My day-to-day work sits between developers, payment systems, QA teams, and enterprise clients.
+          </p>
+          <p>
+            WrittenByD is where I make the rest of my technical development visible. Instead of collecting
+            certificates in isolation, I use coursework as fuel for projects that can be inspected, explained,
+            improved, and eventually reused.
+          </p>
+          <p>
+            The goal is simple: leave a trail of working systems behind me.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <span class="brand-mark">W/D</span>
+        <p>WrittenByD — built one system at a time.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/WrittenByD" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+
+  <dialog id="project-modal" class="project-modal">
+    <button class="modal-close" type="button" aria-label="Close project details">×</button>
+    <div id="modal-content"></div>
+  </dialog>
+
+  <script src="script.js"></script>
 </body>
 </html>
