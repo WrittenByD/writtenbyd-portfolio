@@ -1,6 +1,6 @@
 # WrittenByD Portfolio
 
-Technical portfolio for John-Douglas McGregor / WrittenByD.
+Technical portfolio for John-D. / WrittenByD.
 
 ## Purpose
 
