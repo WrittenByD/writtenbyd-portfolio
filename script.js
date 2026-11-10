@@ -63,6 +63,29 @@ const projects = [
     github: "https://github.com/WrittenByD/writtenbyd-portfolio"
   },
 
+  {
+    id: "moneris-checkout-json",
+    title: "Moneris Checkout JSON Builder",
+    category: "Fintech & Payments",
+    status: "Live tool",
+    year: "2026",
+    featured: false,
+    source: "Independent Fintech Tool",
+    summary: "A browser-based form that turns Moneris Checkout preload inputs into a clean JSON request body and matching QA or production endpoint.",
+    tags: ["Moneris Checkout", "JSON", "JavaScript", "Payments"],
+    problem: "Preload request bodies are easy to mistype when repeatedly building or troubleshooting Moneris Checkout integrations by hand.",
+    built: "A lightweight client-side generator for required and common optional preload fields. Blank optional values are omitted and the tool never sends the request.",
+    decisions: [
+      "Keep the tool client-side and local-only.",
+      "Do not submit API tokens or preload requests from the browser.",
+      "Generate the endpoint from the selected environment.",
+      "Keep the first version focused on top-level preload fields."
+    ],
+    lessons: "The tool turns a repetitive integration task into a small reusable workflow while keeping the request structure visible and easy to explain.",
+    github: "https://github.com/WrittenByD/writtenbyd-portfolio",
+    demo: "moneris-checkout-json.html"
+  },
+
 ];
 
 const grid = document.querySelector("#project-grid");
@@ -191,7 +214,8 @@ function openProject(id) {
       </div>
 
       <div class="modal-links">
-        ${project.github ? `<a class="button button-primary" href="${project.github}" target="_blank" rel="noreferrer">View GitHub ↗</a>` : ""}
+        ${project.demo ? `<a class="button button-primary" href="${project.demo}">Open tool →</a>` : ""}
+        ${project.github ? `<a class="button button-ghost" href="${project.github}" target="_blank" rel="noreferrer">View GitHub ↗</a>` : ""}
         <button class="button button-ghost" type="button" onclick="document.querySelector('#project-modal').close()">Close</button>
       </div>
     </div>
