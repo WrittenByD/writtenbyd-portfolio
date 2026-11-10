@@ -364,7 +364,15 @@ h3 {
   padding-top: 24px;
 }
 
-.project-footer button {
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.project-footer button,
+.project-footer a {
   border: 0;
   background: transparent;
   color: var(--text);
@@ -373,7 +381,8 @@ h3 {
   padding: 0;
 }
 
-.project-footer button:hover { color: var(--accent); }
+.project-footer button:hover,
+.project-footer a:hover { color: var(--accent); }
 
 .project-source {
   color: var(--muted);
