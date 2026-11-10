@@ -1,4 +1,4 @@
-const API_BASE = "YOUR_WORKER_URL";
+const API_BASE = "https://writtenbyd-moneris-qa.johndouglasmcgregor11.workers.dev";
 
 const amountForm = document.querySelector("#amount-form");
 const amountInput = document.querySelector("#amount");

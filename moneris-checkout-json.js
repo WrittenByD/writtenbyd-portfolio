@@ -16,8 +16,7 @@ const addCartButton = document.querySelector("#add-cart-item");
 const addTokenButton = document.querySelector("#add-token-item");
 
 const endpoints = {
-  qa: "https://gatewayt.moneris.com/chktv2/request/request.php",
-  prod: "https://gateway.moneris.com/chktv2/request/request.php"
+  qa: "https://gatewayt.moneris.com/chktv2/request/request.php"
 };
 
 const optionalFields = [
