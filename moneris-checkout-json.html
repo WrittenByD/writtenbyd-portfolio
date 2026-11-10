@@ -29,12 +29,16 @@
         <p class="eyebrow">FINTECH TOOL / MONERIS CHECKOUT</p>
         <h1>Checkout JSON <span>Builder.</span></h1>
         <p>
-          Enter the values for a Moneris Checkout preload request and generate a clean JSON body.
-          Optional fields are only included when you provide a value.
+          Enter values for a Moneris Checkout preload request and generate a clean JSON body.
+          Blank optional fields and empty optional objects are omitted automatically.
         </p>
         <div class="privacy-note">
           <strong>Local-only:</strong> this page does not send requests to Moneris or store your values.
           The actual preload request should be made server-to-server from your backend.
+        </div>
+        <div class="privacy-note secondary-note">
+          <strong>Optional objects:</strong> use contact, shipping, billing, cart, and recurring fields when
+          your own ecommerce flow is supplying those values rather than collecting them inside Moneris Checkout.
         </div>
       </section>
 
@@ -94,17 +98,17 @@
             <div class="form-grid optional-grid">
               <label class="field">
                 <span>Order Number</span>
-                <input id="order-no" name="order_no" type="text" maxlength="50" placeholder="ORDER-1001" autocomplete="off" />
+                <input name="order_no" type="text" maxlength="50" placeholder="ORDER-1001" autocomplete="off" />
               </label>
 
               <label class="field">
                 <span>Customer ID</span>
-                <input id="cust-id" name="cust_id" type="text" maxlength="50" placeholder="CUSTOMER-25" autocomplete="off" />
+                <input name="cust_id" type="text" maxlength="50" placeholder="CUSTOMER-25" autocomplete="off" />
               </label>
 
               <label class="field">
                 <span>Language</span>
-                <select id="language" name="language">
+                <select name="language">
                   <option value="">Not included</option>
                   <option value="en">English</option>
                   <option value="fr">French</option>
@@ -113,12 +117,12 @@
 
               <label class="field">
                 <span>Dynamic Descriptor</span>
-                <input id="dynamic-descriptor" name="dynamic_descriptor" type="text" placeholder="Descriptor" autocomplete="off" />
+                <input name="dynamic_descriptor" type="text" placeholder="Descriptor" autocomplete="off" />
               </label>
 
               <label class="field">
                 <span>Data Key Format</span>
-                <select id="data-key-format" name="data_key_format">
+                <select name="data_key_format">
                   <option value="">Not included</option>
                   <option value="0">0</option>
                   <option value="0U">0U</option>
@@ -132,17 +136,186 @@
 
               <label class="field">
                 <span>Data Key</span>
-                <input id="data-key" name="data_key" type="text" placeholder="Vault Card Update only" autocomplete="off" />
+                <input name="data_key" type="text" placeholder="Vault Card Update only" autocomplete="off" />
               </label>
 
               <label class="field">
                 <span>Ask CVV</span>
-                <select id="ask-cvv" name="ask_cvv">
+                <select name="ask_cvv">
                   <option value="">Not included</option>
                   <option value="Y">Y</option>
                   <option value="N">N</option>
                 </select>
               </label>
+            </div>
+          </details>
+
+          <details class="optional-fields">
+            <summary>Contact details</summary>
+            <div id="contact-section" class="form-grid optional-grid object-section">
+              <label class="field">
+                <span>First Name</span>
+                <input data-field="first_name" type="text" placeholder="John" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Last Name</span>
+                <input data-field="last_name" type="text" placeholder="Smith" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input data-field="email" type="email" placeholder="john@example.com" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Phone</span>
+                <input data-field="phone" type="text" placeholder="4165551234" autocomplete="off" />
+              </label>
+            </div>
+          </details>
+
+          <details class="optional-fields">
+            <summary>Shipping details</summary>
+            <div id="shipping-section" class="form-grid optional-grid object-section">
+              <label class="field">
+                <span>Address Line 1</span>
+                <input data-field="address_1" type="text" placeholder="1 Main St" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Address Line 2</span>
+                <input data-field="address_2" type="text" placeholder="Unit 2012" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>City</span>
+                <input data-field="city" type="text" placeholder="Toronto" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Province / State</span>
+                <input data-field="province" type="text" placeholder="ON" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Country</span>
+                <input data-field="country" type="text" maxlength="2" placeholder="CA" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Postal / ZIP Code</span>
+                <input data-field="postal_code" type="text" placeholder="M1M1M1" autocomplete="off" />
+              </label>
+            </div>
+          </details>
+
+          <details class="optional-fields">
+            <summary>Billing details</summary>
+            <div id="billing-section" class="form-grid optional-grid object-section">
+              <label class="field">
+                <span>Address Line 1</span>
+                <input data-field="address_1" type="text" placeholder="1 Main St" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Address Line 2</span>
+                <input data-field="address_2" type="text" placeholder="Unit 2000" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>City</span>
+                <input data-field="city" type="text" placeholder="Toronto" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Province / State</span>
+                <input data-field="province" type="text" placeholder="ON" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Country</span>
+                <input data-field="country" type="text" maxlength="2" placeholder="CA" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Postal / ZIP Code</span>
+                <input data-field="postal_code" type="text" placeholder="M1M1M1" autocomplete="off" />
+              </label>
+            </div>
+          </details>
+
+          <details class="optional-fields">
+            <summary>Recurring billing</summary>
+            <div id="recur-section" class="form-grid optional-grid object-section">
+              <label class="field">
+                <span>Bill Now</span>
+                <select data-field="bill_now">
+                  <option value="">Not included</option>
+                  <option value="true">true</option>
+                  <option value="false">false</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Recurring Amount</span>
+                <input data-field="recur_amount" type="text" inputmode="decimal" placeholder="25.00" autocomplete="off" />
+              </label>
+              <label class="field">
+                <span>Start Date</span>
+                <input data-field="start_date" type="date" />
+              </label>
+              <label class="field">
+                <span>Recur Unit</span>
+                <select data-field="recur_unit">
+                  <option value="">Not included</option>
+                  <option value="day">day</option>
+                  <option value="week">week</option>
+                  <option value="month">month</option>
+                  <option value="eom">eom</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Recur Period</span>
+                <input data-field="recur_period" type="number" min="1" max="999" placeholder="1" />
+              </label>
+              <label class="field">
+                <span>Number of Recurs</span>
+                <input data-field="number_of_recurs" type="number" min="1" max="999" placeholder="12" />
+              </label>
+            </div>
+          </details>
+
+          <details class="optional-fields">
+            <summary>Shopping cart</summary>
+            <div class="optional-grid">
+              <div id="cart-items" class="repeat-list"></div>
+              <button id="add-cart-item" class="text-button add-row-button" type="button">+ Add cart item</button>
+
+              <div class="subsection">
+                <h3>Cart totals</h3>
+                <div id="cart-section" class="form-grid object-section">
+                  <label class="field">
+                    <span>Subtotal</span>
+                    <input data-field="subtotal" type="text" inputmode="decimal" placeholder="100.00" autocomplete="off" />
+                  </label>
+                </div>
+              </div>
+
+              <div class="subsection">
+                <h3>Tax</h3>
+                <div id="tax-section" class="form-grid object-section">
+                  <label class="field">
+                    <span>Tax Amount</span>
+                    <input data-field="amount" type="text" inputmode="decimal" placeholder="13.00" autocomplete="off" />
+                  </label>
+                  <label class="field">
+                    <span>Description</span>
+                    <input data-field="description" type="text" placeholder="HST" autocomplete="off" />
+                  </label>
+                  <label class="field">
+                    <span>Rate</span>
+                    <input data-field="rate" type="text" inputmode="decimal" placeholder="13.00" autocomplete="off" />
+                  </label>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <details class="optional-fields">
+            <summary>Vault / Pay by Token</summary>
+            <div class="optional-grid">
+              <p class="section-note">
+                Add up to three stored cards. Each token entry is a data key + issuer ID pair.
+              </p>
+              <div id="token-items" class="repeat-list"></div>
+              <button id="add-token-item" class="text-button add-row-button" type="button">+ Add token</button>
             </div>
           </details>
 
@@ -169,6 +342,56 @@
       </section>
     </main>
   </div>
+
+  <template id="cart-item-template">
+    <div class="repeat-card cart-item">
+      <div class="repeat-card-heading">
+        <strong class="row-title">Item</strong>
+        <button class="remove-row text-button" type="button">Remove</button>
+      </div>
+      <div class="form-grid">
+        <label class="field">
+          <span>Image URL</span>
+          <input data-field="url" type="url" placeholder="https://example.com/item.jpg" autocomplete="off" />
+        </label>
+        <label class="field">
+          <span>Description</span>
+          <input data-field="description" type="text" placeholder="Item description" autocomplete="off" />
+        </label>
+        <label class="field">
+          <span>Product Code</span>
+          <input data-field="product_code" type="text" placeholder="SKU-100" autocomplete="off" />
+        </label>
+        <label class="field">
+          <span>Unit Cost</span>
+          <input data-field="unit_cost" type="text" inputmode="decimal" placeholder="25.00" autocomplete="off" />
+        </label>
+        <label class="field">
+          <span>Quantity</span>
+          <input data-field="quantity" type="number" min="1" placeholder="1" />
+        </label>
+      </div>
+    </div>
+  </template>
+
+  <template id="token-item-template">
+    <div class="repeat-card token-item">
+      <div class="repeat-card-heading">
+        <strong class="row-title">Token</strong>
+        <button class="remove-row text-button" type="button">Remove</button>
+      </div>
+      <div class="form-grid">
+        <label class="field">
+          <span>Data Key</span>
+          <input data-field="data_key" type="text" placeholder="Vault data key" autocomplete="off" />
+        </label>
+        <label class="field">
+          <span>Issuer ID</span>
+          <input data-field="issuer_id" type="text" placeholder="Issuer ID" autocomplete="off" />
+        </label>
+      </div>
+    </div>
+  </template>
 
   <script src="moneris-checkout-json.js"></script>
 </body>
