@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Generate a Moneris Checkout preload JSON request from a simple browser form." />
+  <title>Moneris Checkout JSON Builder | WrittenByD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="moneris-checkout-json.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="WrittenByD home">
+        <span class="brand-mark">D</span>
+        <span>WrittenByD</span>
+      </a>
+      <nav class="site-nav" aria-label="Tool navigation">
+        <a href="index.html#projects">Projects</a>
+        <a class="nav-cta" href="index.html">Portfolio ↗</a>
+      </nav>
+    </header>
+
+    <main class="tool-page">
+      <section class="tool-intro">
+        <p class="eyebrow">FINTECH TOOL / MONERIS CHECKOUT</p>
+        <h1>Checkout JSON <span>Builder.</span></h1>
+        <p>
+          Enter the values for a Moneris Checkout preload request and generate a clean JSON body.
+          Optional fields are only included when you provide a value.
+        </p>
+        <div class="privacy-note">
+          <strong>Local-only:</strong> this page does not send requests to Moneris or store your values.
+          The actual preload request should be made server-to-server from your backend.
+        </div>
+      </section>
+
+      <section class="builder-grid">
+        <form id="checkout-form" class="builder-panel" novalidate>
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">REQUEST INPUT</p>
+              <h2>Preload fields</h2>
+            </div>
+            <button id="reset-button" class="text-button" type="button">Reset</button>
+          </div>
+
+          <div class="form-section">
+            <h3>Required</h3>
+            <div class="form-grid">
+              <label class="field">
+                <span>Store ID</span>
+                <input id="store-id" name="store_id" type="text" placeholder="store2" required autocomplete="off" />
+              </label>
+
+              <label class="field">
+                <span>API Token</span>
+                <div class="password-row">
+                  <input id="api-token" name="api_token" type="password" placeholder="Enter API token" required autocomplete="off" />
+                  <button id="toggle-token" class="input-button" type="button">Show</button>
+                </div>
+              </label>
+
+              <label class="field">
+                <span>Checkout ID</span>
+                <input id="checkout-id" name="checkout_id" type="text" placeholder="chkt..." required autocomplete="off" />
+              </label>
+
+              <label class="field">
+                <span>Transaction Total</span>
+                <input id="txn-total" name="txn_total" type="text" inputmode="decimal" placeholder="100.00" required autocomplete="off" />
+              </label>
+
+              <label class="field">
+                <span>Environment</span>
+                <select id="environment" name="environment">
+                  <option value="qa" selected>QA</option>
+                  <option value="prod">Production</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Action</span>
+                <input type="text" value="preload" disabled />
+              </label>
+            </div>
+          </div>
+
+          <details class="optional-fields">
+            <summary>Optional top-level fields</summary>
+            <div class="form-grid optional-grid">
+              <label class="field">
+                <span>Order Number</span>
+                <input id="order-no" name="order_no" type="text" maxlength="50" placeholder="ORDER-1001" autocomplete="off" />
+              </label>
+
+              <label class="field">
+                <span>Customer ID</span>
+                <input id="cust-id" name="cust_id" type="text" maxlength="50" placeholder="CUSTOMER-25" autocomplete="off" />
+              </label>
+
+              <label class="field">
+                <span>Language</span>
+                <select id="language" name="language">
+                  <option value="">Not included</option>
+                  <option value="en">English</option>
+                  <option value="fr">French</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Dynamic Descriptor</span>
+                <input id="dynamic-descriptor" name="dynamic_descriptor" type="text" placeholder="Descriptor" autocomplete="off" />
+              </label>
+
+              <label class="field">
+                <span>Data Key Format</span>
+                <select id="data-key-format" name="data_key_format">
+                  <option value="">Not included</option>
+                  <option value="0">0</option>
+                  <option value="0U">0U</option>
+                  <option value="1">1</option>
+                  <option value="1U">1U</option>
+                  <option value="2">2</option>
+                  <option value="2U">2U</option>
+                  <option value="4U">4U</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Data Key</span>
+                <input id="data-key" name="data_key" type="text" placeholder="Vault Card Update only" autocomplete="off" />
+              </label>
+
+              <label class="field">
+                <span>Ask CVV</span>
+                <select id="ask-cvv" name="ask_cvv">
+                  <option value="">Not included</option>
+                  <option value="Y">Y</option>
+                  <option value="N">N</option>
+                </select>
+              </label>
+            </div>
+          </details>
+
+          <p id="form-message" class="form-message" aria-live="polite"></p>
+        </form>
+
+        <section class="builder-panel output-panel" aria-label="Generated request">
+          <div class="panel-heading output-heading">
+            <div>
+              <p class="eyebrow">GENERATED REQUEST</p>
+              <h2>JSON</h2>
+            </div>
+            <button id="copy-button" class="button button-primary" type="button">Copy JSON</button>
+          </div>
+
+          <div class="endpoint-block">
+            <span>POST endpoint</span>
+            <code id="endpoint"></code>
+          </div>
+
+          <pre class="json-output"><code id="json-output"></code></pre>
+          <p id="copy-message" class="copy-message" aria-live="polite"></p>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="moneris-checkout-json.js"></script>
+</body>
+</html>
