@@ -3,14 +3,21 @@ const MONERIS_URL = "https://gatewayt.moneris.com/chktv2/request/request.php";
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin") || "";
-    const allowedOrigin = env.ALLOWED_ORIGIN || "https://writtenbyd.com";
+    const allowedOrigins = [
+      env.ALLOWED_ORIGIN || "https://writtenbyd.com",
+      "https://www.writtenbyd.com"
+    ];
 
     const corsHeaders = {
-      "Access-Control-Allow-Origin": origin === allowedOrigin ? origin : allowedOrigin,
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Vary": "Origin"
     };
+
+    if (allowedOrigins.includes(origin)) {
+      corsHeaders["Access-Control-Allow-Origin"] = origin;
+    }
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: corsHeaders });
