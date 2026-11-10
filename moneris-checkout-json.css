@@ -30,6 +30,11 @@
   font-size: 0.9rem;
 }
 
+.secondary-note {
+  margin-top: 10px;
+  border-left-color: var(--line);
+}
+
 .privacy-note strong { color: var(--text); }
 
 .builder-grid {
@@ -81,7 +86,8 @@
   border-color: var(--accent);
 }
 
-.form-section h3 {
+.form-section h3,
+.subsection h3 {
   margin-bottom: 16px;
   color: var(--muted);
   font-family: "DM Mono", monospace;
@@ -151,7 +157,58 @@
   font-weight: 700;
 }
 
+.optional-fields[open] summary {
+  color: var(--accent);
+}
+
 .optional-grid { margin-top: 18px; }
+
+.section-note {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.repeat-list {
+  display: grid;
+  gap: 12px;
+}
+
+.repeat-card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(8, 13, 19, 0.55);
+}
+
+.repeat-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.row-title {
+  color: var(--accent);
+  font-family: "DM Mono", monospace;
+  font-size: 0.78rem;
+}
+
+.remove-row {
+  padding: 5px 8px;
+  font-size: 0.75rem;
+}
+
+.add-row-button {
+  margin-top: 12px;
+}
+
+.subsection {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--line);
+}
 
 .form-message,
 .copy-message {
@@ -185,7 +242,7 @@
 
 .json-output {
   min-height: 430px;
-  max-height: 620px;
+  max-height: 720px;
   overflow: auto;
   margin: 0;
   padding: 20px;
