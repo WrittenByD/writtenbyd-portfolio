@@ -86,6 +86,29 @@ const projects = [
     demo: "moneris-checkout-json.html"
   },
 
+  {
+    id: "moneris-checkout-demo",
+    title: "Moneris Checkout QA Demo",
+    category: "Fintech & Payments",
+    status: "Live demo",
+    year: "2026",
+    featured: false,
+    source: "Independent Fintech Lab",
+    summary: "A customer-facing QA checkout flow that accepts an amount, requests a secure preload ticket from a Cloudflare Worker, and launches Moneris Hosted Checkout.",
+    tags: ["Moneris Checkout", "Cloudflare Workers", "JavaScript", "Payments"],
+    problem: "A real checkout demo needs to keep Moneris credentials off the public site while still letting a browser launch a hosted payment instance.",
+    built: "A QA-only customer flow with a static frontend on GitHub Pages and a serverless backend that performs preload and receipt requests to Moneris.",
+    decisions: [
+      "Keep Store ID, API token, and Checkout ID in Cloudflare secrets.",
+      "Send only the transaction amount from the browser to the backend.",
+      "Return only the temporary checkout ticket to the browser.",
+      "Restrict the Worker to approved browser origins."
+    ],
+    lessons: "The demo separates public UI from secret-bearing server logic and demonstrates the full preload-to-hosted-checkout architecture.",
+    github: "https://github.com/WrittenByD/writtenbyd-portfolio",
+    demo: "moneris-checkout-demo.html"
+  },
+
 ];
 
 const grid = document.querySelector("#project-grid");
@@ -161,7 +184,10 @@ function renderProjects() {
         </div>
 
         <div class="project-footer">
-          <button type="button" data-project="${project.id}">View case study →</button>
+          <div class="project-actions">
+            <button type="button" data-project="${project.id}">View case study →</button>
+            ${project.demo ? `<a href="${project.demo}">Open demo →</a>` : ""}
+          </div>
           <span class="project-source">${project.year}</span>
         </div>
       </article>
