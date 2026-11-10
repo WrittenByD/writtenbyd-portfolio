@@ -55,14 +55,18 @@ async function initiateCheckout(request, env, headers) {
     action: "preload"
   });
 
-  if (!monerisResponse.ticket) {
+  const ticket =
+    monerisResponse.ticket ||
+    monerisResponse.response?.ticket;
+
+  if (!ticket) {
     return json({
       error: "Moneris did not return a checkout ticket.",
       moneris: monerisResponse
     }, 502, headers);
   }
 
-  return json({ ticket: monerisResponse.ticket }, 200, headers);
+  return json({ ticket }, 200, headers);
 }
 
 async function getReceipt(request, env, headers) {
