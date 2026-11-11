@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="WrittenByD Audio Stem Processing Tool — Python, Gradio, Demucs and audio analysis." />
+  <title>Audio Stem Processing Tool | WrittenByD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="WrittenByD home">
+        <span class="brand-mark">D</span>
+        <span>WrittenByD</span>
+      </a>
+      <nav class="site-nav" aria-label="Project navigation">
+        <a href="#architecture">Architecture</a>
+        <a href="#run">Run locally</a>
+        <a class="nav-cta" href="../index.html">Portfolio ↗</a>
+      </nav>
+    </header>
+
+    <main class="stem-page">
+      <section class="stem-hero">
+        <p class="eyebrow">SOFTWARE DEVELOPMENT / AUDIO</p>
+        <h1>Audio Stem <span>Processing Tool.</span></h1>
+        <p class="stem-lede">
+          A Python workflow that turns a repetitive music-production task into one process:
+          upload tracks, estimate BPM/key, separate stems with Demucs, rename the outputs,
+          and package the results for download.
+        </p>
+
+        <div class="stem-tags">
+          <span>Python</span>
+          <span>Gradio</span>
+          <span>Demucs</span>
+          <span>librosa</span>
+          <span>FFmpeg</span>
+          <span>Automation</span>
+        </div>
+
+        <div class="hero-actions stem-actions">
+          <a class="button button-primary" href="https://github.com/WrittenByD/writtenbyd-portfolio/tree/main/audio-stem-tool" target="_blank" rel="noreferrer">View source ↗</a>
+          <a class="button button-ghost" href="#run">Run locally</a>
+        </div>
+      </section>
+
+      <section class="feature-grid">
+        <article class="feature-card">
+          <p class="eyebrow">01 / INPUT</p>
+          <h2>Batch tracks</h2>
+          <p>Upload one track or a group of tracks and run the same workflow across all of them.</p>
+        </article>
+        <article class="feature-card">
+          <p class="eyebrow">02 / ANALYZE</p>
+          <h2>BPM + key</h2>
+          <p>librosa estimates tempo and chroma is compared against major/minor key profiles.</p>
+        </article>
+        <article class="feature-card">
+          <p class="eyebrow">03 / SEPARATE</p>
+          <h2>Four stems</h2>
+          <p>Demucs produces vocals, drums, bass, and other — presented here as melody/instruments.</p>
+        </article>
+        <article class="feature-card">
+          <p class="eyebrow">04 / EXPORT</p>
+          <h2>Clean outputs</h2>
+          <p>Files are renamed with BPM, key, and stem type, then bundled into one downloadable ZIP.</p>
+        </article>
+      </section>
+
+      <section id="architecture" class="detail-card">
+        <div>
+          <p class="eyebrow">ARCHITECTURE</p>
+          <h2>One workflow, several tools.</h2>
+        </div>
+        <div class="flow">
+          <span>Audio upload</span><b>→</b>
+          <span>librosa</span><b>→</b>
+          <span>Demucs</span><b>→</b>
+          <span>Rename</span><b>→</b>
+          <span>ZIP export</span>
+        </div>
+        <p>
+          Gradio handles the interface. Python coordinates analysis, subprocess execution,
+          temporary files, cancellation, and export packaging.
+        </p>
+      </section>
+
+      <section id="run" class="detail-card run-card">
+        <div>
+          <p class="eyebrow">RUN THE PROJECT</p>
+          <h2>Use the app locally.</h2>
+        </div>
+        <p>
+          The source is live on GitHub. Install Python 3.11 and FFmpeg, then run these commands
+          from the <code>audio-stem-tool</code> folder.
+        </p>
+        <pre>python -m venv .venv
+.venv\Scripts\activate
+pip install gradio -r requirements.txt
+python app.py</pre>
+        <p class="host-note">
+          The public Gradio deployment is the next layer. GitHub Pages can host this project page,
+          but Demucs needs a Python compute host to process audio.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
