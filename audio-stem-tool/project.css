@@ -129,3 +129,27 @@
     display: none;
   }
 }
+
+
+.stem-preview {
+  width: min(100%, 760px);
+  margin: 42px 0 0;
+}
+
+.stem-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.28);
+}
+
+.stem-preview figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
