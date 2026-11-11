@@ -20,7 +20,7 @@
       </a>
       <nav class="site-nav" aria-label="Project navigation">
         <a href="#architecture">Architecture</a>
-        <a href="#run">Run locally</a>
+        <a href="download.html">Download</a>
         <a class="nav-cta" href="../index.html">Portfolio ↗</a>
       </nav>
     </header>
@@ -45,8 +45,8 @@
         </div>
 
         <div class="hero-actions stem-actions">
-          <a class="button button-primary" href="https://github.com/WrittenByD/writtenbyd-portfolio/tree/main/audio-stem-tool" target="_blank" rel="noreferrer">View source ↗</a>
-          <a class="button button-ghost" href="#run">Run locally</a>
+          <a class="button button-primary" href="download.html">Download Audio Stem Tool ↓</a>
+          <a class="button button-ghost" href="https://github.com/WrittenByD/writtenbyd-portfolio/tree/main/audio-stem-tool" target="_blank" rel="noreferrer">View source ↗</a>
         </div>
       </section>
 
@@ -93,20 +93,19 @@
 
       <section id="run" class="detail-card run-card">
         <div>
-          <p class="eyebrow">RUN THE PROJECT</p>
-          <h2>Use the app locally.</h2>
+          <p class="eyebrow">LOCAL APPLICATION</p>
+          <h2>Download it. Run it yourself.</h2>
         </div>
         <p>
-          The source is live on GitHub. Install Python 3.11 and FFmpeg, then run these commands
-          from the <code>audio-stem-tool</code> folder.
+          The application runs locally on Windows instead of depending on a third-party compute host.
+          Your audio stays on your own computer while Python, Demucs, librosa, and FFmpeg handle the processing.
         </p>
-        <pre>python -m venv .venv
-.venv\Scripts\activate
-pip install gradio -r requirements.txt
-python app.py</pre>
+        <div class="hero-actions stem-actions">
+          <a class="button button-primary" href="download.html">Download Audio Stem Tool (.zip) ↓</a>
+          <a class="button button-ghost" href="https://github.com/WrittenByD/writtenbyd-portfolio/tree/main/audio-stem-tool" target="_blank" rel="noreferrer">Inspect source ↗</a>
+        </div>
         <p class="host-note">
-          The public Gradio deployment is the next layer. GitHub Pages can host this project page,
-          but Demucs needs a Python compute host to process audio.
+          Requirements: Windows 10/11, Python 3.11, and FFmpeg. The included setup script installs the required Python packages into a local virtual environment.
         </p>
       </section>
     </main>
