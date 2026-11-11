@@ -39,7 +39,9 @@ const projects = [
       "Keep batch processing and cancellation visible to the user."
     ],
     lessons: "Building the tool required debugging environment variables, subprocesses, audio libraries, UI event handling, and long-running task state.",
-    github: ""
+    github: "https://github.com/WrittenByD/writtenbyd-portfolio/tree/main/audio-stem-tool",
+    demo: "audio-stem-tool/",
+    demoLabel: "Open project →"
   },
   {
     id: "portfolio",
