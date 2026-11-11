@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="QA customer checkout demo using Moneris Checkout." />
+  <title>Moneris Checkout Demo | WrittenByD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="qa-demo.css" />
+  <script src="https://gatewayt.moneris.com/chktv2/js/chkt_v3.00.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="WrittenByD home">
+        <span class="brand-mark">D</span>
+        <span>WrittenByD</span>
+      </a>
+      <nav class="site-nav" aria-label="Demo navigation">
+        <a href="json-builder.html">JSON Builder</a>
+        <a class="nav-cta" href="../index.html">Portfolio ↗</a>
+      </nav>
+    </header>
+
+    <main class="checkout-page">
+      <section class="checkout-intro">
+        <p class="eyebrow">FINTECH LAB / CUSTOMER FLOW</p>
+        <h1>Moneris Checkout <span>QA Demo.</span></h1>
+        <p>
+          Enter a transaction amount and launch a real Moneris Checkout test instance.
+          Payment details are collected inside Moneris' hosted checkout interface.
+        </p>
+        <div class="qa-badge">QA ONLY — no production transactions</div>
+      </section>
+
+      <section class="checkout-layout">
+        <section class="checkout-card">
+          <p class="eyebrow">CUSTOMER INPUT</p>
+          <h2>Choose an amount</h2>
+
+          <form id="amount-form">
+            <label class="amount-field" for="amount">
+              <span>Transaction amount</span>
+              <div class="amount-input">
+                <span>$</span>
+                <input
+                  id="amount"
+                  name="amount"
+                  type="text"
+                  inputmode="decimal"
+                  placeholder="10.00"
+                  autocomplete="off"
+                  required
+                />
+                <span>CAD</span>
+              </div>
+            </label>
+
+            <button id="start-checkout" class="button button-primary checkout-button" type="submit">
+              Start Checkout
+            </button>
+          </form>
+
+          <div class="test-note">
+            <strong>Test environment:</strong>
+            use Moneris QA test cards only. No real card information should be entered on this demo.
+          </div>
+        </section>
+
+        <aside class="status-card">
+          <p class="eyebrow">CHECKOUT STATUS</p>
+          <div class="status-row">
+            <span id="status-dot" class="status-dot"></span>
+            <strong id="status-title">Ready</strong>
+          </div>
+          <p id="status-message">Enter an amount to generate a checkout instance.</p>
+
+          <details class="event-log">
+            <summary>Callback log</summary>
+            <pre id="callback-log">No events yet.</pre>
+          </details>
+        </aside>
+      </section>
+
+      <section id="checkout-shell" class="checkout-shell" hidden>
+        <div class="checkout-shell-heading">
+          <div>
+            <p class="eyebrow">MONERIS HOSTED CHECKOUT</p>
+            <h2>Payment</h2>
+          </div>
+          <button id="close-checkout" class="button button-ghost" type="button">Close Checkout</button>
+        </div>
+
+        <div id="monerisCheckout"></div>
+      </section>
+
+      <section id="result-card" class="result-card" hidden>
+        <p class="eyebrow">RECEIPT RESPONSE</p>
+        <h2 id="result-title">Transaction complete</h2>
+        <pre id="receipt-output"></pre>
+      </section>
+    </main>
+  </div>
+
+  <script src="qa-demo.js"></script>
+</body>
+</html>
