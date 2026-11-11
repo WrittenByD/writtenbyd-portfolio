@@ -1,50 +1,52 @@
----
-title: WrittenByD Audio Stem Tool
-emoji: 🎚️
-colorFrom: purple
-colorTo: yellow
-sdk: gradio
-python_version: "3.11"
-app_file: app.py
-pinned: false
----
-
 # WrittenByD Audio Stem Tool
 
-A Python/Gradio workflow for music-production prep.
+A local Python/Gradio application for music-production prep.
 
 ## What it does
 
-- Upload one or more tracks
+- Process one or more audio tracks
 - Estimate BPM and musical key
-- Split each track with Demucs into vocals, drums, bass, and other/melody
+- Split each track into vocals, drums, bass, and other/melody with Demucs
 - Rename stems consistently
 - Package processed stems into a downloadable ZIP
-- Allow cancellation of the active Demucs process
+- Cancel the active Demucs job
 
 ## Stack
 
-Python, Gradio, Demucs, librosa, NumPy, FFmpeg.
+Python, Gradio, Demucs, librosa, NumPy, and FFmpeg.
 
-## Run locally
+## Download
 
-Install Python 3.11 and FFmpeg, then from this folder:
+The WrittenByD project page provides a downloadable local package:
 
-```powershell
-python -m venv .venv
-.venv\Scripts\activate
-pip install gradio -r requirements.txt
-python app.py
-```
+https://writtenbyd.com/audio-stem-tool/
 
-The app will normally open at:
+The package includes:
+
+- `app.py`
+- `requirements.txt`
+- `setup_windows.bat`
+- `run_windows.bat`
+- `README_LOCAL.md`
+
+## Windows setup
+
+1. Install Python 3.11.
+2. Install FFmpeg and make sure it is available in PATH.
+3. Extract the downloaded ZIP.
+4. Run `setup_windows.bat`.
+5. Run `run_windows.bat`.
+
+The Gradio interface normally opens at:
 
 ```text
 http://127.0.0.1:7860
 ```
 
+## Privacy
+
+The application runs locally. Audio files are processed on the user's own computer and are not uploaded to WrittenByD.
+
 ## Notes
 
-BPM and key detection are estimates. Dense mixes, ambiguous harmony, samples, and heavy 808s can reduce accuracy.
-
-The public/web version returns a ZIP instead of writing directly into user-selected local folders. That keeps the hosted version portable and browser-safe.
+BPM and key detection are estimates. Dense mixes, samples, ambiguous harmony, and heavy 808s can reduce accuracy.
