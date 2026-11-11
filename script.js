@@ -64,49 +64,27 @@ const projects = [
   },
 
   {
-    id: "moneris-checkout-json",
-    title: "Moneris Checkout JSON Builder",
+    id: "moneris-checkout-lab",
+    title: "Moneris Checkout Integration Lab",
     category: "Fintech & Payments",
-    status: "Live tool",
-    year: "2026",
-    featured: false,
-    source: "Independent Fintech Tool",
-    summary: "A browser-based form that turns Moneris Checkout preload inputs into a clean JSON request body and matching QA or production endpoint.",
-    tags: ["Moneris Checkout", "JSON", "JavaScript", "Payments"],
-    problem: "Preload request bodies are easy to mistype when repeatedly building or troubleshooting Moneris Checkout integrations by hand.",
-    built: "A lightweight client-side generator for required and common optional preload fields. Blank optional values are omitted and the tool never sends the request.",
-    decisions: [
-      "Keep the tool client-side and local-only.",
-      "Do not submit API tokens or preload requests from the browser.",
-      "Generate the endpoint from the selected environment.",
-      "Keep the first version focused on top-level preload fields."
-    ],
-    lessons: "The tool turns a repetitive integration task into a small reusable workflow while keeping the request structure visible and easy to explain.",
-    github: "https://github.com/WrittenByD/writtenbyd-portfolio",
-    demo: "moneris-checkout-json.html"
-  },
-
-  {
-    id: "moneris-checkout-demo",
-    title: "Moneris Checkout QA Demo",
-    category: "Fintech & Payments",
-    status: "Live demo",
+    status: "Live project",
     year: "2026",
     featured: false,
     source: "Independent Fintech Lab",
-    summary: "A customer-facing QA checkout flow that accepts an amount, requests a secure preload ticket from a Cloudflare Worker, and launches Moneris Hosted Checkout.",
-    tags: ["Moneris Checkout", "Cloudflare Workers", "JavaScript", "Payments"],
-    problem: "A real checkout demo needs to keep Moneris credentials off the public site while still letting a browser launch a hosted payment instance.",
-    built: "A QA-only customer flow with a static frontend on GitHub Pages and a serverless backend that performs preload and receipt requests to Moneris.",
+    summary: "A QA-focused Moneris Checkout toolkit combining preload JSON generation, a customer-facing hosted checkout demo, and a secure serverless backend.",
+    tags: ["Moneris Checkout", "JavaScript", "JSON", "Cloudflare Workers", "Payments"],
+    problem: "Testing hosted checkout flows requires both a clear way to build preload requests and a secure way to launch real QA checkout instances without exposing merchant credentials in the browser.",
+    built: "One project containing a preload JSON builder, a customer QA checkout flow, and a Cloudflare Worker that performs server-to-server preload and receipt calls while keeping Moneris credentials in secrets.",
     decisions: [
-      "Keep Store ID, API token, and Checkout ID in Cloudflare secrets.",
-      "Send only the transaction amount from the browser to the backend.",
-      "Return only the temporary checkout ticket to the browser.",
-      "Restrict the Worker to approved browser origins."
+      "Keep all Moneris Checkout tools under one project path.",
+      "Keep Store ID, API token, and Checkout ID out of public browser code.",
+      "Use GitHub Pages for the frontend and Cloudflare Workers for secret-bearing backend requests.",
+      "Keep the tools QA-only and expose the request/response flow clearly for troubleshooting."
     ],
-    lessons: "The demo separates public UI from secret-bearing server logic and demonstrates the full preload-to-hosted-checkout architecture.",
+    lessons: "The project demonstrates how a hosted payment integration crosses frontend, backend, security, CORS, deployment, and gateway boundaries while still keeping each layer simple enough to inspect.",
     github: "https://github.com/WrittenByD/writtenbyd-portfolio",
-    demo: "moneris-checkout-demo.html"
+    demo: "moneris-checkout/",
+    demoLabel: "Open project →"
   },
 
 ];
@@ -186,7 +164,7 @@ function renderProjects() {
         <div class="project-footer">
           <div class="project-actions">
             <button type="button" data-project="${project.id}">View case study →</button>
-            ${project.demo ? `<a href="${project.demo}">Open demo →</a>` : ""}
+            ${project.demo ? `<a href="${project.demo}">${project.demoLabel || "Open demo →"}</a>` : ""}
           </div>
           <span class="project-source">${project.year}</span>
         </div>
@@ -240,7 +218,7 @@ function openProject(id) {
       </div>
 
       <div class="modal-links">
-        ${project.demo ? `<a class="button button-primary" href="${project.demo}">Open tool →</a>` : ""}
+        ${project.demo ? `<a class="button button-primary" href="${project.demo}">${project.demoLabel || "Open tool →"}</a>` : ""}
         ${project.github ? `<a class="button button-ghost" href="${project.github}" target="_blank" rel="noreferrer">View GitHub ↗</a>` : ""}
         <button class="button button-ghost" type="button" onclick="document.querySelector('#project-modal').close()">Close</button>
       </div>
