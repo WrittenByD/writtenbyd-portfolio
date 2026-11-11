@@ -1,0 +1,131 @@
+.stem-page {
+  width: min(calc(100% - 40px), var(--max));
+  margin: 0 auto;
+  padding: 90px 0 110px;
+}
+
+.stem-hero {
+  max-width: 940px;
+  margin-bottom: 52px;
+}
+
+.stem-hero h1 {
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+}
+
+.stem-lede,
+.feature-card p,
+.detail-card > p {
+  color: var(--muted);
+}
+
+.stem-lede {
+  max-width: 820px;
+  font-size: 1.08rem;
+}
+
+.stem-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.stem-tags span {
+  padding: 6px 9px;
+  border-radius: 7px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+}
+
+.stem-actions {
+  margin-top: 26px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.feature-card,
+.detail-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(150deg, rgba(21, 29, 42, 0.95), rgba(13, 18, 27, 0.98));
+}
+
+.feature-card h2,
+.detail-card h2 {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.detail-card {
+  margin-top: 18px;
+}
+
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 26px 0 20px;
+  font-family: "DM Mono", monospace;
+  font-size: 0.78rem;
+}
+
+.flow span {
+  padding: 9px 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #080d13;
+}
+
+.flow b {
+  color: var(--accent);
+}
+
+.run-card pre {
+  overflow: auto;
+  margin: 20px 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #080d13;
+  color: #dbe4ef;
+  font-family: "DM Mono", monospace;
+  font-size: 0.8rem;
+}
+
+.run-card code {
+  color: var(--accent);
+}
+
+.host-note {
+  margin-top: 12px;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 760px) {
+  .stem-page {
+    width: min(calc(100% - 28px), var(--max));
+    padding-top: 65px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 10px;
+  }
+
+  .site-nav a:first-child {
+    display: none;
+  }
+}
